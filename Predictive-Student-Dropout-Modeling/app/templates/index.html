@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduGuard AI | Advanced Dropout Prediction</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <div class="main-container">
+        <!-- Header -->
+        <header class="app-header fade-in-down">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>EduGuard AI</span>
+            </div>
+            <h1>Student Success Predictor</h1>
+            <p>Advanced Machine Learning Risk Assessment Model</p>
+        </header>
+
+        <!-- Main Form Card -->
+        <main class="glass-card fade-in-up">
+
+            <div id="loading-state" class="loader-container">
+                <div class="spinner"></div>
+                <p>Initializing System Configuration...</p>
+            </div>
+
+            <form id="prediction-form" style="display: none;">
+                <div class="form-grid" id="form-fields">
+                    <!-- Dynamic Fields -->
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary glow-effect">
+                        <i class="fas fa-search-analytics"></i> Analyze Risk Level
+                    </button>
+                    <button type="button" class="btn-secondary" onclick="resetForm()">
+                        <i class="fas fa-undo"></i> Reset Form
+                    </button>
+                </div>
+            </form>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 EduGuard AI Research.</p>
+        </footer>
+    </div>
+
+    <!-- Result Modal -->
+    <div id="result-modal" class="modal-overlay hidden">
+        <div class="modal-scroll-wrapper">
+            <!-- Close button outside the capture area -->
+            <button class="close-modal-btn" onclick="closeResult()">
+                <i class="fas fa-times"></i> Close
+            </button>
+
+            <!-- CAPTURE TARGET: Dedicated ID, Opaque style enforced via class -->
+            <div id="analysisReport" class="report-card">
+
+                <div class="report-header">
+                    <div class="logo-small">
+                        <i class="fas fa-graduation-cap"></i> EduGuard AI
+                    </div>
+                    <h2>Analysis Report</h2>
+                    <div class="risk-badge" id="risk-badge">Calculating...</div>
+                </div>
+
+                <div class="report-body">
+
+                    <!-- Chart Section -->
+                    <div class="chart-section">
+                        <div class="progress-circle">
+                            <svg viewBox="0 0 36 36">
+                                <path class="circle-bg"
+                                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                <path class="circle-fg" id="risk-path" stroke-dasharray="0, 100"
+                                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                            </svg>
+                            <div class="percentage-content">
+                                <span id="prob-text">0%</span>
+                                <small>Dropout Probability</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Risk Drivers -->
+                    <div class="drivers-section">
+                        <h3><i class="fas fa-project-diagram"></i> Key Risk Drivers</h3>
+                        <div id="key-factors-list" class="factors-list"></div>
+                    </div>
+
+                    <!-- Recommendations -->
+                    <div class="recommendations-section">
+                        <h3><i class="fas fa-lightbulb"></i> AI Recommendations</h3>
+                        <ul id="suggestions-list"></ul>
+                    </div>
+
+                    <div class="report-meta">
+                        <p>Generated on <span id="report-date"></span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Download Button (Outside Capture Area) -->
+            <div class="modal-actions">
+                <button id="btn-download" class="btn-primary" onclick="downloadReport()">
+                    <i class="fas fa-file-pdf"></i> Download PDF Report
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PDF Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="/static/script.js?v=4.0"></script>
+</body>
+
+</html>

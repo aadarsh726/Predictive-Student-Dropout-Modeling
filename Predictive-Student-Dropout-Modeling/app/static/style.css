@@ -1,0 +1,468 @@
+/* 
+  EduGuard AI - Premium Theme 
+  Fixed for PDF Export Compatibility
+*/
+
+:root {
+    --bg-dark: #1A1F35;
+    --bg-light: #2A2F55;
+    --primary: #8A4FFF;
+    --secondary: #C084FC;
+    --accent: #FF4F99;
+    --success: #00D26A;
+    --warning: #FFB020;
+    --danger: #FF4F4F;
+    --text-white: #FFFFFF;
+    --text-muted: #B4B7C9;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    --input-bg: rgba(0, 0, 0, 0.2);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, var(--bg-dark), var(--bg-light));
+    color: var(--text-white);
+    min-height: 100vh;
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+    padding: 2rem 1rem;
+}
+
+/* Background Animation */
+.background-blobs {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.4;
+    animation: float 10s infinite ease-in-out;
+}
+
+.blob-1 {
+    width: 400px;
+    height: 400px;
+    background: var(--primary);
+    top: -50px;
+    left: -100px;
+}
+
+.blob-2 {
+    width: 300px;
+    height: 300px;
+    background: var(--accent);
+    bottom: -50px;
+    right: -50px;
+    animation-delay: 5s;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(20px, 40px);
+    }
+}
+
+/* Layout */
+.main-container {
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* Header */
+.app-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--secondary);
+    margin-bottom: 0.5rem;
+}
+
+.app-header h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    background: linear-gradient(to right, #fff, var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.app-header p {
+    color: var(--text-muted);
+}
+
+/* Glass Card */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: var(--card-shadow);
+}
+
+/* Form Styles */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 0.5rem;
+    color: var(--text-white);
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group select {
+    background: var(--input-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 1rem;
+    color: var(--text-white);
+    font-family: inherit;
+    transition: 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 15px rgba(138, 79, 255, 0.3);
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.input-hint {
+    font-size: 0.75rem;
+    color: var(--secondary);
+    margin-top: 0.4rem;
+    display: flex;
+    gap: 5px;
+    opacity: 0.8;
+}
+
+/* Buttons */
+.form-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border: none;
+    padding: 1rem 3rem;
+    color: white;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(138, 79, 255, 0.5);
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 1px solid var(--text-muted);
+    padding: 1rem 2rem;
+    color: var(--text-muted);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-secondary:hover {
+    border-color: white;
+    color: white;
+}
+
+/* Spinner */
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    border-top: 3px solid var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loader-container {
+    text-align: center;
+    padding: 2rem;
+}
+
+/* 
+   MODAL & REPORT - CRITICAL FOR PDF 
+*/
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+    /* Allow scroll logic */
+    padding: 1rem;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.modal-scroll-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    max-height: 100vh;
+    overflow-y: auto;
+    padding-bottom: 2rem;
+}
+
+/* The actual card to print. Must be opaque for PDF capture */
+.report-card {
+    background: #1e1b4b;
+    /* Solid dark blue/purple */
+    background: linear-gradient(135deg, #1A1F35, #2A2F55);
+    /* Solid gradient, NO transparency */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 3rem;
+    width: 600px;
+    /* Fixed width for PDF consistency */
+    max-width: 100%;
+    color: white;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+    /* No backdrop-filter on the report card itself to avoid artifacts */
+}
+
+/* Modals Actions */
+.close-modal-btn {
+    align-self: flex-end;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-right: 1rem;
+}
+
+.modal-actions {
+    margin-top: 1rem;
+}
+
+/* Report Content */
+.report-header {
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.logo-small {
+    color: var(--secondary);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.report-body {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Circular Chart */
+.chart-section {
+    display: flex;
+    justify-content: center;
+}
+
+.progress-circle {
+    position: relative;
+    width: 140px;
+    height: 140px;
+}
+
+svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.circle-bg {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.1);
+    stroke-width: 2.5;
+}
+
+.circle-fg {
+    fill: none;
+    stroke-width: 3;
+    stroke-linecap: round;
+    transition: 1s ease;
+}
+
+.percentage-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.percentage-content span {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+/* Badge */
+.risk-badge {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+
+/* Factors */
+.factors-list div {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.8rem;
+    border-radius: 8px;
+    margin-bottom: 0.8rem;
+}
+
+.factor-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
+}
+
+.factor-bar-bg {
+    background: rgba(255, 255, 255, 0.1);
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.factor-bar {
+    height: 100%;
+    border-radius: 4px;
+}
+
+/* Recs */
+.recommendations-section ul {
+    list-style: none;
+}
+
+.recommendations-section li {
+    margin-bottom: 0.5rem;
+    display: flex;
+    gap: 8px;
+}
+
+.recommendations-section li:before {
+    content: "•";
+    color: var(--warning);
+    font-weight: bold;
+}
+
+.report-meta {
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1rem;
+}
+
+/* Animations */
+.fade-in-down {
+    animation: fadeInDown 0.8s;
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.8s;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
